@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h3><%= @user.username %></h3>
+</div>
+
+ <ul class="list-group">
+    <% @user.photos.each do |photo| %>
+    <li class="list-group-item">
+      <a href="/photos/<%= photo.id %>">
+        <%= photo.id %>
+      </a>
+    </li>
+    <% end %>

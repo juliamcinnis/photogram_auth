@@ -4,5 +4,6 @@ class Like < ActiveRecord::Base
 
 	 has_many :liked_photos, :through => :likes, :source => :user
 
-	  
+	  belongs_to :photo
+	  belongs_to :user 
 end

@@ -1,4 +1,9 @@
 class PhotosController < ApplicationController
+  
+def my_likes
+  @photos = current_user.liked_photos
+  end
+
   def index
     @photos = Photo.all
   end
@@ -25,7 +30,7 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @photo = Photo.find(params[:id])
+     @photo = Photo.find(params[:id])
   end
 
   def update

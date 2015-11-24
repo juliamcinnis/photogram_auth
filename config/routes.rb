@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  
+  get 'users/index'
+  get 'users/show'
+
+  root 'photos#index'
+
   devise_for :users
+
+ get "/users", :controller => "users", :action => "index"
+ get "/users/:id", :controller => "users", :action => "show"
+
+  get "/my_likes/", :controller => "photos", :action => "my_likes"
+
   # Routes for the Comment resource:
   # CREATE
-
-  root "photos#index"
   
   get "/comments/new", :controller => "comments", :action => "new"
   post "/create_comment", :controller => "comments", :action => "create"
@@ -73,19 +83,19 @@ Rails.application.routes.draw do
 
 # Routes for the My Likes:
   # CREATE
-  get "/my_likes/new", :controller => "likes", :action => "new"
-  post "/create_like", :controller => "likes", :action => "create"
+  #get "/my_likes/new", :controller => "likes", :action => "new"
+  #post "/create_like", :controller => "likes", :action => "create"
 
   # READ
-  get "/my_likes", :controller => "likes", :action => "index"
-  get "/my_likes/:id", :controller => "likes", :action => "show"
+  #get "/my_likes", :controller => "likes", :action => "index"
+  #get "/my_likes/:id", :controller => "likes", :action => "show"
 
   # UPDATE
-  get "/likes/:id/edit", :controller => "likes", :action => "edit"
-  post "/update_like/:id", :controller => "likes", :action => "update"
+  #get "/likes/:id/edit", :controller => "likes", :action => "edit"
+  #post "/update_like/:id", :controller => "likes", :action => "update"
 
   # DELETE
-  get "/delete_like/:id", :controller => "likes", :action => "destroy"
+  #get "/delete_like/:id", :controller => "likes", :action => "destroy"
 
 
   
